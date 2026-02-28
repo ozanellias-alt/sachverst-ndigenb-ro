@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wohnwert – Freier Sachverständiger im Bauwesen | Sanierung & Altbau</title>
+  <meta name="description" content="Wohnwert: Unabhängige Gutachten, Hauskaufberatung, Bauschäden & Mängel, Baubegleitung, Immobilienbewertung und Energieberatung in Vechta & Umgebung." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Seriöse Farbwahl (editable) */
+      --navy:#0F2433;       /* Hauptfarbe */
+      --slate:#243447;      /* dunkler Text */
+      --gold:#C6A65B;       /* Akzent */
+      --bg:#FCFCFA;         /* sehr helles Altweiß */
+      --bg2:#F4F2ED;
+
+      --card:#ffffff;
+      --ink:#111827;
+      --muted:#4b5563;
+      --line: rgba(15,36,51,.14);
+
+      --shadow: 0 18px 55px rgba(17,24,39,.10);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 760px at 10% -10%, rgba(15,36,51,.10), transparent 62%),
+        radial-gradient(1100px 760px at 92% 10%, rgba(198,166,91,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+    .sep{height:1px; background:var(--line); margin:18px 0;}
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px) saturate(160%);
+      background: rgba(252,252,250,.88);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0; position:relative;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; min-width:280px;}
+    .brand .word{display:flex; flex-direction:column; line-height:1.1}
+    .brand .word b{font-family:"Playfair Display", serif; letter-spacing:.01em; font-size:16px}
+    .brand .word span{font-weight:800; color:rgba(17,24,39,.65); font-size:12px}
+
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:6px; align-items:center;}
+    nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:14px;
+      color: var(--ink);
+      font-weight:850;
+    }
+    nav a:hover{background: rgba(15,36,51,.08);}
+
+    .actions{display:flex; gap:10px; align-items:center;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 8px 28px rgba(17,24,39,.07);
+      font-weight:900;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--navy), #0B1B26);
+      color: #fff;
+      position:relative;
+    }
+    .btn.primary:after{
+      content:""; position:absolute; inset:-1px;
+      border-radius:14px;
+      border:1px solid rgba(198,166,91,.70);
+      pointer-events:none;
+    }
+    .btn.gold{
+      background: linear-gradient(135deg, #d1b068, var(--gold));
+      color:#111111;
+      border-color: transparent;
+    }
+    .menuBtn{display:none}
+
+    .hero{padding:54px 0 22px;}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:24px;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.78);
+      color: rgba(17,17,17,.70);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--gold), var(--navy));
+      box-shadow: 0 0 0 6px rgba(198,166,91,.14);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-family:"Playfair Display", serif;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height:1.06;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      font-weight:650;
+      max-width: 75ch;
+    }
+    .heroCtas{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;}
+
+    .trustRow{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+    }
+    .trust{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      background: rgba(255,255,255,.70);
+    }
+    .trust b{display:block}
+    .trust span{color:var(--muted); font-weight:700; font-size:13px}
+
+    .heroMedia{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      min-height: 560px;
+      background:
+        linear-gradient(180deg, rgba(252,252,250,.15), rgba(252,252,250,.92)),
+        url("https://www.wohnwert.kedian.de/images/home/haus.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      flex-direction:column;
+    }
+    .heroMediaInner{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      height:100%;
+      justify-content:space-between;
+    }
+    .heroMedia h3{margin:0; font-family:"Playfair Display", serif; font-size:18px;}
+    .heroMedia p{margin:0; color:var(--muted); font-weight:700}
+    .miniGrid{display:grid; gap:10px}
+    .miniCard{
+      background: rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .miniCard b{display:block}
+    .miniCard span{color:var(--muted); font-weight:700; font-size:13px}
+
+    section{padding:46px 0;}
+    .sectionGrid{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap:16px;
+      align-items:start;
+    }
+    .sectionTitle{
+      position:sticky;
+      top:96px;
+      align-self:start;
+    }
+    .sectionTitle .tag{
+      display:inline-block;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:12px;
+      color: rgba(17,17,17,.70);
+      margin-bottom:10px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size: clamp(26px, 3.0vw, 38px);
+      line-height:1.14;
+    }
+    .sectionTitle p{margin:10px 0 0; color:var(--muted); font-weight:650; max-width:55ch;}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+
+    .feature{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(17,24,39,.06);
+    }
+    .icon{
+      width:44px;height:44px;border-radius:16px;
+      display:grid;place-items:center;
+      background: rgba(15,36,51,.08);
+      border:1px solid rgba(15,36,51,.18);
+      font-weight:1000;
+      color: var(--navy);
+      margin-bottom:10px;
+      position:relative;
+    }
+    .icon:after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:16px;
+      border:1px solid rgba(198,166,91,.40);
+      pointer-events:none;
+    }
+    .feature h3{margin:0 0 6px; font-size:16px}
+    .feature p{margin:0; color:var(--muted); font-weight:650}
+
+    .service{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(17,24,39,.06);
+      display:flex;
+      flex-direction:column;
+    }
+    .service img{width:100%; height:210px; object-fit:cover;}
+    .service .pad{padding:16px}
+    .service h3{margin:0 0 6px; font-family:"Playfair Display", serif;}
+    .service p{margin:0; color:var(--muted); font-weight:650}
+
+    .ctaBand{
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(15,36,51,.07), rgba(198,166,91,.08));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    details{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:14px 16px;
+    }
+    summary{cursor:pointer; font-weight:900}
+    details p{margin:10px 0 0; color:var(--muted); font-weight:650}
+
+    .form label{display:block; font-weight:900; margin:10px 0 6px}
+    .form input,.form textarea,.form select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      outline:none;
+      font-family: Inter, system-ui, Arial;
+    }
+    .form textarea{min-height:120px; resize:vertical}
+    .row2{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+    .small{color:var(--muted); font-weight:700; font-size:13px}
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 40px;
+      color:var(--muted);
+    }
+    .footGrid{display:grid; grid-template-columns: 1.1fr .9fr .9fr; gap:14px;}
+    .footGrid a{color:var(--muted); text-decoration:none}
+    .footGrid a:hover{color:var(--ink)}
+    .copy{
+      margin-top:16px; padding-top:14px;
+      border-top:1px solid var(--line);
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+
+    .float{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      display:flex; flex-direction:column; gap:10px;
+    }
+
+    .logoMark{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(15,36,51,.08);
+      border:1px solid rgba(198,166,91,.45);
+    }
+    .logoMark svg{width:26px;height:26px}
+
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+      .sectionGrid{grid-template-columns:1fr}
+      .sectionTitle{position:static}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      nav ul{display:none}
+      .menuBtn{display:inline-flex}
+      .nav.open nav ul{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        position:absolute;
+        left:0; right:0;
+        top:64px;
+        padding:12px;
+        background: rgba(252,252,250,.96);
+        border:1px solid var(--line);
+        border-radius: 18px;
+        gap:6px;
+      }
+      .trustRow{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="nav" id="topNav">
+      <a class="brand" href="#top" aria-label="Start">
+        <span class="logoMark" aria-hidden="true">
+          <!-- ✅ Logo als SVG (kein Upload nötig) -->
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M10 28L32 10l22 18v26a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6V28Z" stroke="rgba(15,36,51,.9)" stroke-width="3"/>
+            <path d="M24 54V34h16v20" stroke="rgba(198,166,91,.95)" stroke-width="3"/>
+            <path d="M22 30h20" stroke="rgba(198,166,91,.95)" stroke-width="3"/>
+          </svg>
+        </span>
+        <span class="word">
+          <b>Wohnwert</b>
+          <span>Bausachverständiger · Sanierung · Altbau</span>
+        </span>
+      </a>
+
+      <nav aria-label="Navigation">
+        <ul id="mobileMenu">
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#ueber">Über uns</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="#referenzen">Referenzen</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <!-- Kontaktdaten aus deiner Seite (kannst du später anpassen) -->
+        <a class="btn gold" href="tel:+4944411234567">📞 Direkt anrufen</a>
+        <a class="btn primary" href="#kontakt">Kostenlose Erstberatung</a>
+        <button class="btn menuBtn" id="menuBtn" type="button" aria-expanded="false">☰ Menü</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="card">
+          <div class="kicker"><span class="dot"></span> KLARHEIT · SICHERHEIT · WERTERHALT</div>
+          <h1>Fundierte Entscheidungen<br>für Sanierung, Altbau & Kauf.</h1>
+          <p class="lead">
+            Wir prüfen, bewerten und begleiten – unabhängig, erfahren und mit klarem Blick für Details.
+            Ob Neubau, Sanierung oder Kaufentscheidung: Wohnwert ist Ihr Partner für fundierte Gutachten
+            und sichere Entscheidungen in Vechta und Umgebung.
+          </p>
+
+          <div class="heroCtas">
+            <a class="btn gold" href="tel:+4944411234567">📞 10 Min. Erstberatung</a>
+            <a class="btn primary" href="#kontakt">Anfrage senden</a>
+          </div>
+
+          <div class="trustRow">
+            <div class="trust"><b>Zertifizierte Expertise</b><span>geprüfte Sachverständige</span></div>
+            <div class="trust"><b>Schnelle Reaktionszeit</b><span>zeitnahe Termine & Berichte</span></div>
+            <div class="trust"><b>100% Zufriedenheit</b><span>über 500 Kunden in der Region</span></div>
+          </div>
+        </div>
+
+        <div class="heroMedia" aria-label="Titelbild">
+          <div class="heroMediaInner">
+            <div>
+              <div class="kicker"><span class="dot"></span> PRÄZISE PRÜFUNG VOR ORT</div>
+              <h3 style="margin-top:10px;">Damit aus Vermutungen Gewissheit wird.</h3>
+              <p>Messungen · Fotodokumentation · verständliche Handlungsempfehlungen.</p>
+            </div>
+
+            <div class="miniGrid">
+              <div class="miniCard"><b>Altbau-Check</b><span>Risiken früh erkennen</span></div>
+              <div class="miniCard"><b>Sanierungs-Plan</b><span>Prioritäten & Kostenlogik</span></div>
+              <div class="miniCard"><b>Mängel & Schäden</b><span>Ursachen + Lösungen</span></div>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn gold" href="tel:+4944411234567">📞 Anrufen</a>
+              <a class="btn" href="mailto:info@wohnwert-bauwesen.de">E-Mail</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="sectionGrid">
+        <div class="sectionTitle">
+          <div class="tag">Leistungen</div>
+          <h2>Professionelle Bewertung & Expertise</h2>
+          <p>Maßgeschneidert für Ihr Immobilienprojekt – von Kaufberatung bis Baubegleitung.</p>
+        </div>
+
+        <div style="display:grid; gap:14px;">
+          <div class="grid3">
+            <div class="service">
+              <img src="https://www.wohnwert.kedian.de/images/mood/man.jpg" alt="Bausachverständiger" />
+              <div class="pad">
+                <h3>Bausachverständiger</h3>
+                <p>Unabhängige Expertise & objektive Bewertung zu allen Aspekten Ihrer Immobilie – von Planung bis Abnahme.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <img src="https://www.wohnwert.kedian.de/images/mood/hauskaufberatung.jpg" alt="Hauskaufberatung" />
+              <div class="pad">
+                <h3>Hauskaufberatung</h3>
+                <p>Mängel erkennen, tatsächlichen Zustand bewerten, sichere Kaufentscheidung treffen.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <img src="https://www.wohnwert.kedian.de/images/mood/maengel-2.png" alt="Bauschäden und Mängel" />
+              <div class="pad">
+                <h3>Bauschäden & Mängel</h3>
+                <p>Ursachenforschung, Dokumentation und Sanierungsempfehlungen – wirtschaftlich & nachhaltig.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid3">
+            <div class="service">
+              <img src="https://www.wohnwert.kedian.de/images/mood/altbau.jpg" alt="Baubegleitung Altbau" />
+              <div class="pad">
+                <h3>Baubegleitung</h3>
+                <p>Regelmäßige Qualitätskontrollen aller Bauphasen – damit fachgerecht gebaut und sauber dokumentiert wird.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <img src="https://www.wohnwert.kedian.de/images/home/haus.jpg" alt="Immobilienbewertung" />
+              <div class="pad">
+                <h3>Immobilienbewertung</h3>
+                <p>Marktgerechte Bewertung für Verkauf, Kauf, Finanzierung oder Nachlass – nachvollziehbar dokumentiert.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <img src="https://www.wohnwert.kedian.de/images/mood/Energieberatung.jpg" alt="Energieberatung" />
+              <div class="pad">
+                <h3>Energieberatung</h3>
+                <p>Einsparpotenziale erkennen, Effizienz steigern – gut für Umwelt und Geldbeutel.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ctaBand">
+            <div>
+              <div class="kicker"><span class="dot"></span> Kostenlose Erstberatung</div>
+              <h3 style="margin:10px 0 0; font-family:'Playfair Display',serif;">Kurz schildern – wir sagen Ihnen sofort, was sinnvoll ist.</h3>
+              <div class="small">Telefonisch · unverbindlich · schnell Klarheit</div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn gold" href="tel:+4944411234567">📞 Jetzt anrufen</a>
+              <a class="btn primary" href="#kontakt">Anfrage senden</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber">
+    <div class="wrap">
+      <div class="sectionGrid">
+        <div class="sectionTitle">
+          <div class="tag">Über uns</div>
+          <h2>Erfahrung, die Risiken sichtbar macht.</h2>
+          <p>Mehr als 15 Jahre Erfahrung in der Immobilienbranche – mit Fokus auf Bewertung und Beratung in Vechta & Umgebung.</p>
+        </div>
+
+        <div class="grid2">
+          <div class="feature">
+            <div class="icon">👁️</div>
+            <h3>Klarer Blick fürs Detail</h3>
+            <p>Wir erkennen typische Schwachstellen bei Altbau und Sanierung – und ordnen sie fachlich ein.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🧰</div>
+            <h3>Modernste Technik</h3>
+            <p>Fortschrittliche Diagnoseverfahren und Messinstrumente für präzise Ergebnisse.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">⚖️</div>
+            <h3>Unabhängig</h3>
+            <p>Objektiv, herstellerunabhängig – ausschließlich Ihren Interessen verpflichtet.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🗣️</div>
+            <h3>Verständliche Sprache</h3>
+            <p>Komplexes klar erklärt – mit praktischen Handlungsempfehlungen statt „Fachchinesisch“.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf">
+    <div class="wrap">
+      <div class="sectionGrid">
+        <div class="sectionTitle">
+          <div class="tag">Ablauf</div>
+          <h2>Transparent & unkompliziert</h2>
+          <p>So läuft die Zusammenarbeit ab – Schritt für Schritt.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="feature"><div class="icon">1</div><h3>Erstgespräch</h3><p>Kostenlose telefonische Beratung und Einordnung Ihres Anliegens.</p></div>
+          <div class="feature"><div class="icon">2</div><h3>Vor-Ort-Termin</h3><p>Detaillierte Begehung und Analyse mit Messinstrumenten.</p></div>
+          <div class="feature"><div class="icon">3</div><h3>Dokumentation</h3><p>Bericht mit Ergebnissen, Fotos und konkreten Handlungsempfehlungen.</p></div>
+          <div class="feature"><div class="icon">4</div><h3>Besprechung</h3><p>Durchsprache der Ergebnisse – verständlich und praxisnah.</p></div>
+          <div class="feature"><div class="icon">5</div><h3>Nachbetreuung</h3><p>Wir bleiben Ansprechpartner für Rückfragen und Umsetzung.</p></div>
+          <div class="feature"><div class="icon">✓</div><h3>Werterhalt</h3><p>Ziel: nachhaltige Lösungen statt kurzfristiger „Kosmetik“.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referenzen">
+    <div class="wrap">
+      <div class="sectionGrid">
+        <div class="sectionTitle">
+          <div class="tag">Referenzen</div>
+          <h2>Das sagen unsere Kunden</h2>
+          <p>Erfahrungen und Bewertungen zufriedener Kunden.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="feature">
+            <div class="icon">★</div>
+            <h3>Thomas Schmidt</h3>
+            <p><b>Bauherr aus Cloppenburg</b><br>
+            „Die Zusammenarbeit war von Anfang bis Ende professionell… klare Empfehlung.“</p>
+          </div>
+          <div class="feature">
+            <div class="icon">★</div>
+            <h3>Sabine Weber</h3>
+            <p><b>Hauseigentümerin, Damme</b><br>
+            „Ursachenanalyse präzise… Maßnahmen haben das Problem dauerhaft gelöst.“</p>
+          </div>
+          <div class="feature">
+            <div class="icon">★</div>
+            <h3>Ehepaar Becker</h3>
+            <p><b>Immobilienkäufer, Lohne</b><br>
+            „Fundiertes Wertgutachten… fairer Kaufpreis und problemlose Finanzierung.“</p>
+          </div>
+        </div>
+
+        <div class="ctaBand" style="margin-top:14px;">
+          <div>
+            <div class="kicker"><span class="dot"></span> Benötigen Sie Unterstützung?</div>
+            <h3 style="margin:10px 0 0; font-family:'Playfair Display',serif;">Kontaktieren Sie uns – unverbindlich.</h3>
+            <div class="small">Wir melden uns zeitnah zurück.</div>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn gold" href="tel:+4944411234567">📞 Direkt anrufen</a>
+            <a class="btn primary" href="#kontakt">Jetzt anfragen</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="sectionGrid">
+        <div class="sectionTitle">
+          <div class="tag">Kontakt</div>
+          <h2>Wir sind für Sie da</h2>
+          <p>Nehmen Sie noch heute Kontakt auf – wir melden uns zeitnah.</p>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3 style="margin:0 0 8px; font-family:'Playfair Display',serif;">Anfrage senden</h3>
+            <div class="small">Ohne Server: Formular öffnet eine E-Mail (mailto).</div>
+
+            <form class="form" id="contactForm" style="margin-top:10px;">
+              <div class="row2">
+                <div><label for="name">Name *</label><input id="name" required /></div>
+                <div><label for="email">E-Mail *</label><input id="email" type="email" required /></div>
+              </div>
+
+              <label for="phone">Telefon</label>
+              <input id="phone" />
+
+              <label for="topic">Gewünschte Leistung *</label>
+              <select id="topic" required>
+                <option value="">Bitte auswählen</option>
+                <option>Bausachverständiger</option>
+                <option>Hauskaufberatung</option>
+                <option>Bauschäden & Mängel</option>
+                <option>Baubegleitung</option>
+                <option>Immobilienbewertung</option>
+                <option>Energieberatung</option>
+                <option>Sonstiges</option>
+              </select>
+
+              <label for="message">Ihre Nachricht *</label>
+              <textarea id="message" required placeholder="Kurz Ihr Anliegen + Ort/Objekt + gewünschter Zeitraum."></textarea>
+
+              <button class="btn primary" type="submit" style="margin-top:12px;">E-Mail öffnen</button>
+              <div class="sep"></div>
+              <a class="btn gold" href="tel:+4944411234567">📞 Oder direkt anrufen</a>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 8px; font-family:'Playfair Display',serif;">Kontaktdaten</h3>
+
+            <div class="feature" style="margin-top:10px;">
+              <div class="icon">📍</div>
+              <h3>Adresse</h3>
+              <p><b>Wohnwert GmbH</b><br>Hauptstraße 123<br>49377 Vechta</p>
+            </div>
+
+            <div class="feature" style="margin-top:12px;">
+              <div class="icon">📞</div>
+              <h3>Telefon</h3>
+              <p><a href="tel:+4944411234567">+49 (0) 4441 12345-67</a></p>
+            </div>
+
+            <div class="feature" style="margin-top:12px;">
+              <div class="icon">✉</div>
+              <h3>E-Mail</h3>
+              <p><a href="mailto:info@wohnwert-bauwesen.de">info@wohnwert-bauwesen.de</a></p>
+            </div>
+
+            <div class="feature" style="margin-top:12px;">
+              <div class="icon">🕘</div>
+              <h3>Öffnungszeiten</h3>
+              <p>Mo – Fr: 9:00 – 17:00 Uhr<br>Sa: Nach Vereinbarung<br>So: Geschlossen</p>
+            </div>
+
+            <div class="ctaBand" style="margin-top:14px;">
+              <div>
+                <div class="kicker"><span class="dot"></span> Schnellster Weg</div>
+                <div class="small">Ein kurzer Anruf klärt oft in Minuten, was sonst Tage dauert.</div>
+              </div>
+              <a class="btn gold" href="tel:+4944411234567">📞 Jetzt anrufen</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footGrid">
+      <div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <span class="logoMark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M10 28L32 10l22 18v26a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6V28Z" stroke="rgba(15,36,51,.9)" stroke-width="3"/>
+              <path d="M24 54V34h16v20" stroke="rgba(198,166,91,.95)" stroke-width="3"/>
+              <path d="M22 30h20" stroke="rgba(198,166,91,.95)" stroke-width="3"/>
+            </svg>
+          </span>
+          <div>
+            <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--ink);">Wohnwert</div>
+            <div class="small">Qualität & Vertrauen im Bauwesen</div>
+          </div>
+        </div>
+        <p style="margin:10px 0 0;">
+          Als Ihr Bausachverständiger in Vechta & Umgebung unterstützen wir Sie mit Expertise und Leidenschaft.
+        </p>
+      </div>
+
+      <div>
+        <b style="color:var(--ink)">Navigation</b>
+        <div style="margin-top:8px; display:grid; gap:6px;">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ueber">Über uns</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#referenzen">Referenzen</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+
+      <div>
+        <b style="color:var(--ink)">Rechtliches</b>
+        <div style="margin-top:8px; display:grid; gap:6px;">
+          <a href="https://www.wohnwert.kedian.de/impressum" target="_blank" rel="noopener">Impressum</a>
+          <a href="https://www.wohnwert.kedian.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copy">
+      <div>© <span id="year"></span> Wohnwert. Alle Rechte vorbehalten.</div>
+      <div>Farben: Navy · Gold · Altweiß</div>
+    </div>
+  </div>
+</footer>
+
+<div class="float">
+  <a class="btn gold" href="tel:+4944411234567">📞 Anrufen</a>
+  <a class="btn primary" href="#kontakt">Anfrage</a>
+</div>
+
+<script>
+  // Mobile menu
+  const nav = document.getElementById("topNav");
+  const btn = document.getElementById("menuBtn");
+  btn?.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  // Mailto form submit
+  document.getElementById("contactForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = (id) => document.getElementById(id)?.value?.trim() || "";
+    const name = v("name");
+    const email = v("email");
+    const phone = v("phone");
+    const topic = v("topic");
+    const message = v("message");
+
+    const subject = encodeURIComponent(`Anfrage – ${topic}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nE-Mail: ${email}\nTelefon: ${phone}\nLeistung: ${topic}\n\nNachricht:\n${message}`
+    );
+
+    window.location.href = `mailto:info@wohnwert-bauwesen.de?subject=${subject}&body=${body}`;
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
